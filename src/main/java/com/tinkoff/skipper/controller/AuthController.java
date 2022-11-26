@@ -22,6 +22,7 @@ public class AuthController {
 
     private final AuthService authService;
 
+    @CrossOrigin
     @PostMapping("login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest authRequest)
             throws AuthException {
@@ -32,6 +33,7 @@ public class AuthController {
         );
     }
 
+    @CrossOrigin
     @PostMapping("token")
     public ResponseEntity<JwtResponse> getNewAccessToken(@RequestBody RefreshJwtRequest request) {
         final JwtResponse token = authService.getAccessToken(request.getRefreshToken());
@@ -42,6 +44,7 @@ public class AuthController {
     }
 
 //    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @CrossOrigin
     @PostMapping("refresh")
     public ResponseEntity<JwtResponse> getNewRefreshToken(@RequestBody RefreshJwtRequest request)
             throws AuthException {

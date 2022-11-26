@@ -19,6 +19,7 @@ public class UserMenteeInfoController {
 
     private final UserMenteeService userMenteeService;
 
+    @CrossOrigin
     @GetMapping("{id}/mentee_profile")
     public ResponseEntity<UserMenteeProfileDto> getMenteeUserInfo(@PathVariable Long id) {
         return SkipperResponseBuilder.buildResponse(

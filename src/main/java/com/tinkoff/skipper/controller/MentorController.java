@@ -21,6 +21,7 @@ public class MentorController {
 
     private final MentorService mentorService;
 
+    @CrossOrigin
     @GetMapping(path = "{id}")
     public ResponseEntity<MentorProfileDto> getMentor(
             @PathVariable("id") Long id) {
@@ -31,6 +32,7 @@ public class MentorController {
     }
 
 //    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<String> createMentor(
             @RequestBody MentorDto newMentor) {
@@ -42,6 +44,7 @@ public class MentorController {
     }
 
 //    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @CrossOrigin
     @PutMapping(path = "{id}")
     public ResponseEntity<String> updateMentorProfile(
             @RequestBody MentorDataDto data,
@@ -54,6 +57,7 @@ public class MentorController {
     }
 
 //    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @CrossOrigin
     @DeleteMapping(path = "{id}")
     public ResponseEntity<String> deleteMentor(
             @PathVariable("id") Long id) {
