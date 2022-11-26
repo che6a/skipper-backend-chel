@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "api/users", produces = "application/json")
 @RequiredArgsConstructor
-@CrossOrigin(origins="http://localhost:8090")
+@CrossOrigin(origins="http://localhost:8080")
 public class UserController {
 
     private final UserService userService;
 
 //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    @CrossOrigin
     @GetMapping("{id}")
     public ResponseEntity<UserEntity> getAllUserInfo(@PathVariable Long id) {
         return SkipperResponseBuilder.buildResponse(
@@ -28,7 +27,6 @@ public class UserController {
         );
     }
 
-    @CrossOrigin
     @PostMapping("register")
     public ResponseEntity<String> registerNewUser(@RequestBody RegisterRequest newUser) {
             userService.registerNewUser(newUser);
@@ -41,7 +39,6 @@ public class UserController {
     //TODO: Передавать параметром дто-шку
     //@PreAuthorize("hasAuthority('ROLE_USER')")
 //    @PreAuthorize("hasRole('USER')")
-    @CrossOrigin
     @PutMapping("{id}/settings")
     public ResponseEntity<String> updateUserInfo(
             @PathVariable("id")Long id,
@@ -54,7 +51,6 @@ public class UserController {
     }
 
 //    @PreAuthorize("hasAuthority('ROLE_USER')")
-    @CrossOrigin
     @DeleteMapping("{id}/settings")
     public ResponseEntity<String> deleteUser(@PathVariable("id") UserEntity user) {
         userService.deleteUser(user);

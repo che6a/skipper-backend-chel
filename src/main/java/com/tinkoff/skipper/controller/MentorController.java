@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = "api/mentor", produces = "application/json")
 @RequiredArgsConstructor
-@CrossOrigin(origins="http://localhost:8090")
+@CrossOrigin(origins="http://localhost:8080")
 public class MentorController {
 
     private final MentorService mentorService;
