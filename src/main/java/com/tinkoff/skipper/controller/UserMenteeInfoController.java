@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "api/users", produces = "application/json")
 @RequiredArgsConstructor
-@CrossOrigin(origins="http://localhost:8080")
+@CrossOrigin(origins="http://localhost:8090")
 public class UserMenteeInfoController {
 
     private final UserMenteeService userMenteeService;
